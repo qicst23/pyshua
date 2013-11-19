@@ -28,12 +28,20 @@ class TwoSum(Problem):
 
     def input(self):
         from Parser import parseArrayAndIntInput
-        inputPath = "ti/leetcode/data/two-sum.input"
+        import os
+        inputPath = os.path.join(
+            os.path.dirname(__file__),
+            'data/TwoSum.input'
+        )
         return parseArrayAndIntInput(open(inputPath))
 
     def output(self):
         from Parser import parseArrayAndIntOutput
-        outputPath = "ti/leetcode/data/two-sum.output"
+        import os
+        outputPath = os.path.join(
+            os.path.dirname(__file__),
+            'data/TwoSum.output'
+        )
         return parseArrayAndIntOutput(open(outputPath))
 
 
