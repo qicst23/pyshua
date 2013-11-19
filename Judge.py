@@ -24,6 +24,6 @@ class Judge(object):
             run_time.append(time() - t_start)
         if verbose:
             print '%i testcases passed. Run time (ms):' % len(run_time)
-            print ' '.join(['{:.2f}'.format(1000 * i) for i in run_time])
+            print ' '.join(['{:.3f}'.format(10**6 * i) for i in run_time])
 
 judge = Judge()

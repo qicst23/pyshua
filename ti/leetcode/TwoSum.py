@@ -1,7 +1,7 @@
-from Problem import Problem
+from ti.leetcode.LeetcodeProblem import LeetcodeProblem
 
 
-class TwoSum(Problem):
+class TwoSum(LeetcodeProblem):
     def solve(self, numbers, target):
         copy = numbers[:]
         numbers.sort()
@@ -28,21 +28,11 @@ class TwoSum(Problem):
 
     def input(self):
         from Parser import parseArrayAndIntInput
-        import os
-        inputPath = os.path.join(
-            os.path.dirname(__file__),
-            'data/TwoSum.input'
-        )
-        return parseArrayAndIntInput(open(inputPath))
+        return parseArrayAndIntInput(open(self.inputPath))
 
     def output(self):
         from Parser import parseArrayAndIntOutput
-        import os
-        outputPath = os.path.join(
-            os.path.dirname(__file__),
-            'data/TwoSum.output'
-        )
-        return parseArrayAndIntOutput(open(outputPath))
+        return parseArrayAndIntOutput(open(self.outputPath))
 
 
 problem = TwoSum
