@@ -2,7 +2,7 @@ import imp
 import sys
 from time import time
 
-verbose = True
+verbose = False
 
 
 class Judge(object):
@@ -22,8 +22,9 @@ class Judge(object):
                 print 'Your output:', answer
                 break
             run_time.append(time() - t_start)
+        print '%i testcases passed.' % len(run_time)
         if verbose:
-            print '%i testcases passed. Run time (ms):' % len(run_time)
+            print 'Run time (ms):'
             print ' '.join(['{:.3f}'.format(10**6 * i) for i in run_time])
 
 judge = Judge()

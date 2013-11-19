@@ -27,12 +27,12 @@ class TwoSum(LeetcodeProblem):
         return s1[0] == s2[0] and s1[1] == s2[1]
 
     def input(self):
-        from Parser import parseArrayAndIntInput
-        return parseArrayAndIntInput(open(self.inputPath))
+        from Parser import parseArrayAndInt
+        return parseArrayAndInt(open(self.inputPath))
 
     def output(self):
-        from Parser import parseArrayAndIntOutput
-        return parseArrayAndIntOutput(open(self.outputPath))
+        from Parser import parseTwoInt
+        return parseTwoInt(open(self.outputPath))
 
 
 problem = TwoSum
