@@ -42,3 +42,30 @@ def parseOneInt(file):
 def parseString(file):
     for line in file:
         yield line.rstrip('\n')[1:-1],
+
+
+def parseSingleLinkedList(file):
+    from DataStructure.SingleLinkedListNode import SingleLinkedListNode
+    from DataStructure.Utils import arrayToSingleLinkedList
+    for line in file:
+        array = [int(i) for i in line.strip('{}\n').split(',')]
+        yield arrayToSingleLinkedList(array)
+
+
+def parseTwoSingleLinkedList(file):
+    from DataStructure.SingleLinkedListNode import SingleLinkedListNode
+    from DataStructure.Utils import arrayToSingleLinkedList
+    for line in file:
+        a1, a2 = line.split('}, {')
+        a1 = a1.lstrip('{')
+        if a1 == '':
+            l1 = None
+        else:
+            l1 = arrayToSingleLinkedList([int(x) for x in a1.split(',')])
+
+        a2 = a2.rstrip('}\n')
+        if a2 == '':
+            l2 = None
+        else:
+            l2 = arrayToSingleLinkedList([int(x) for x in a2.split(',')])
+        yield l1, l2
