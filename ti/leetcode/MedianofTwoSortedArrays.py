@@ -19,17 +19,6 @@ class MedianofTwoSortedArrays(LeetcodeProblem):
         if k == 1:
             return min(a[aLow], b[bLow])
 
-        # # this way for setting ac and bc also works
-        # if (aHigh - aLow + 1) <= k / 2:
-        #     ac = aHigh - aLow + 1
-        #     bc = k - ac
-        # elif (bHigh - bLow + 1) <= k / 2:
-        #     bc = bHigh - bLow + 1
-        #     ac = k - bc
-        # else:
-        #     ac = k / 2
-        #     bc = k - ac
-
         if (aHigh - aLow > bHigh - bLow):
             bc = min(bHigh - bLow + 1, k / 2)
             ac = k - bc

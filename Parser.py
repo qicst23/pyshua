@@ -32,3 +32,13 @@ def parseOneFloat(file):
     for line in file:
         f = float(line)
         yield f
+
+
+def parseOneInt(file):
+    for line in file:
+        yield int(line)
+
+
+def parseString(file):
+    for line in file:
+        yield line.rstrip('\n')[1:-1],
