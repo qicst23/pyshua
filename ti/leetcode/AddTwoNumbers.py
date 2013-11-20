@@ -73,6 +73,7 @@ class AddTwoNumbers(LeetcodeProblem):
 
     def output(self):
         from Parser import parseSingleLinkedList
-        return parseSingleLinkedList(open(self.outputPath))
+        for o in parseSingleLinkedList(open(self.outputPath)):
+            yield o[0]
 
 problem = AddTwoNumbers

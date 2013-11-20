@@ -45,6 +45,7 @@ class MedianofTwoSortedArrays(LeetcodeProblem):
 
     def output(self):
         from Parser import parseOneFloat
-        return parseOneFloat(open(self.outputPath))
+        for o in parseOneFloat(open(self.outputPath)):
+            yield o[0]
 
 problem = MedianofTwoSortedArrays

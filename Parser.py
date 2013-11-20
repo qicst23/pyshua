@@ -31,12 +31,12 @@ def parseTwoArrays(file):
 def parseOneFloat(file):
     for line in file:
         f = float(line)
-        yield f
+        yield f,
 
 
 def parseOneInt(file):
     for line in file:
-        yield int(line)
+        yield int(line),
 
 
 def parseString(file):
@@ -49,7 +49,7 @@ def parseSingleLinkedList(file):
     from DataStructure.Utils import arrayToSingleLinkedList
     for line in file:
         array = [int(i) for i in line.strip('{}\n').split(',')]
-        yield arrayToSingleLinkedList(array)
+        yield arrayToSingleLinkedList(array),
 
 
 def parseTwoSingleLinkedList(file):

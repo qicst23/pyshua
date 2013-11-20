@@ -38,6 +38,7 @@ class LongestSubstringWithoutRepeatingCharacters(LeetcodeProblem):
 
     def output(self):
         from Parser import parseOneInt
-        return parseOneInt(open(self.outputPath))
+        for o in parseOneInt(open(self.outputPath)):
+            yield o[0]
 
 problem = LongestSubstringWithoutRepeatingCharacters
