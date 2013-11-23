@@ -48,7 +48,10 @@ def parseSingleLinkedList(file):
     from DataStructure.SingleLinkedListNode import SingleLinkedListNode
     from DataStructure.Utils import arrayToSingleLinkedList
     for line in file:
-        array = [int(i) for i in line.strip('{}\n').split(',')]
+        line = line.strip('{}\n')
+        array = []
+        if line != '':
+            array = [int(i) for i in line.split(',')]
         yield arrayToSingleLinkedList(array),
 
 
