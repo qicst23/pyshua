@@ -20,6 +20,7 @@ class Judge(object):
                 allRight = False
                 break
             run_time.append(time() - t_start)
+        print problem.__class__.__name__, ':',
         print '%i testcases passed.' % len(run_time)
         if verbose:
             print 'Run time (ms):'

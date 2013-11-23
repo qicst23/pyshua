@@ -19,6 +19,5 @@ class LeetcodeTest(unittest.TestCase):
             problem = getattr(problemModule, 'problem', None)
             if problem:
                 self.assertTrue(self.judge.judge(problem()))
-
 if __name__ == '__main__':
     unittest.main()

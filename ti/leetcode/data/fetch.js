@@ -38,10 +38,10 @@ phantom.addCookie({
     domain: 'oj.leetcode.com'
 });
 
-function fetchSubmissionDetails(submissionId) {
-    var url = 'http://oj.leetcode.com/submissions/detail/' + submissionId;
-
+function fetchSubmissionDetails(url) {
     page.open(url, function(status) {
+        console.log(status);
+
         if (status !== 'success') {
             console.log('Unable to access network');
         } else {
@@ -80,4 +80,5 @@ function fetchSubmissionDetails(submissionId) {
     });
 }
 
-fetchSubmissionDetails(require('system').args[1]);
+var url = 'http://oj.leetcode.com/submissions/detail/' + require('system').args[1] + '/';
+fetchSubmissionDetails(url);

@@ -69,3 +69,14 @@ def parseTwoSingleLinkedList(file):
         else:
             l2 = arrayToSingleLinkedList([int(x) for x in a2.split(',')])
         yield l1, l2
+
+
+def parseTupleList(file):
+    for line in file:
+        line = line.strip('[]\n')
+        a = []
+        if line != '':
+            tupleStringList = [ts.strip('()') for ts in line.split('),(')]
+            a = [tuple(
+                [int(i) for i in ts.split(',')]) for ts in tupleStringList]
+        yield a,
