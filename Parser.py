@@ -163,3 +163,12 @@ def parseStringOrNull(file):
         if line != 'null':
             s = line[1:-1]
         yield s,
+
+
+def parseStringArray(file):
+    for line in file:
+        line = line.strip('[]\n')
+        array = []
+        if line != '':
+            array = [s.strip('"') for s in line.split('","')]
+        yield array,
