@@ -6,6 +6,14 @@ def parseArrayAndInt(file):
         yield a, i
 
 
+def parseStringAndInt(file):
+    for line in file:
+        s, i = line.split('", ')
+        s = s.lstrip('"')
+        i = int(i.rstrip('\n'))
+        yield s, i
+
+
 def parseTwoInt(file):
     for line in file:
         i, j = [int(x) for x in line.split(', ')]
