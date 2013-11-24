@@ -83,3 +83,41 @@ def parseTupleList(file):
             a = [tuple(
                 [int(i) for i in ts.split(',')]) for ts in tupleStringList]
         yield a,
+
+
+def parseBinaryTree(file):
+    from DataStructure.TreeNode import TreeNode
+    for line in file:
+        line = line.strip('{}\n')
+        nodeArray = line.split(',')
+        root = None
+        if nodeArray[0] != '':
+            i = 0
+            n = len(nodeArray)
+
+            root = TreeNode(int(nodeArray[i]))
+            i += 1
+            lastLevel = [root]
+
+            while lastLevel:
+                nextLevel = []
+                for node in lastLevel:
+                    if not node:
+                        continue
+                    if i < n:
+                        leftString = nodeArray[i]
+                        i += 1
+                        left = TreeNode(
+                            int(leftString)) if leftString != '#' else None
+                        node.left = left
+                        nextLevel.append(left)
+
+                    if i < n:
+                        rightString = nodeArray[i]
+                        i += 1
+                        right = TreeNode(
+                            int(rightString)) if rightString != '#' else None
+                        node.right = right
+                        nextLevel.append(right)
+                lastLevel = nextLevel
+        yield root,
