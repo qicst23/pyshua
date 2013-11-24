@@ -139,9 +139,10 @@ def parseIntArrayArrays(file):
     for line in file:
         stringAA = line.strip('[]\n').split('],[')
         intAA = []
-        for sa in stringAA:
-            ia = [int(i) for i in sa.split(',')]
-            intAA.append(ia)
+        if stringAA != ['']:
+            for sa in stringAA:
+                ia = [int(i) for i in sa.split(',')]
+                intAA.append(ia)
         yield intAA,
 
 
