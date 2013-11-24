@@ -18,21 +18,18 @@ class UniquePathsII(LeetcodeProblem):
                 break
             else:
                 lastRow[i] = 1
-        firstColumnBlocked = obstacleGrid[0][0] == 1
         i = 1
 
         while i < m:
             nextRow = [0] * n
-            if firstColumnBlocked or obstacleGrid[i][0] == 1:
-                firstColumnBlocked = True
-                nextRow[0] = 0
-            else:
-                nextRow[0] = 1
-
-            for j in xrange(1, n):
+            for j in xrange(n):
                 if obstacleGrid[i][j] == 1:
                     nextRow[j] = 0
                 else:
+                    # can only be used in python
+                    # because here j - 1 might be -1
+                    # nextRow[-1] = must be zero
+                    # then nextRow[0] = lastRow[0]
                     nextRow[j] = nextRow[j - 1] + lastRow[j]
             lastRow = nextRow
             i += 1
