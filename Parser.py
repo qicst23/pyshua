@@ -44,6 +44,12 @@ def parseString(file):
         yield line.rstrip('\n')[1:-1],
 
 
+def parseTwoStrings(file):
+    for line in file:
+        s1, s2 = line.split('", "')
+        yield s1[1:], s2.strip('\n')[:-1]
+
+
 def parseSingleLinkedList(file):
     from DataStructure.SingleLinkedListNode import SingleLinkedListNode
     from DataStructure.Utils import arrayToSingleLinkedList
