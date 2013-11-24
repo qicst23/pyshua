@@ -143,3 +143,12 @@ def parseIntArrayArrays(file):
             ia = [int(i) for i in sa.split(',')]
             intAA.append(ia)
         yield intAA,
+
+
+def parseStringOrNull(file):
+    for line in file:
+        line = line.rstrip('\n')
+        s = None
+        if line != 'null':
+            s = line[1:-1]
+        yield s,
