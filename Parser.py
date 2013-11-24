@@ -98,6 +98,7 @@ def parseBinaryTree(file):
         nodeArray = line.split(',')
         root = None
         if nodeArray[0] != '':
+
             i = 0
             n = len(nodeArray)
 
