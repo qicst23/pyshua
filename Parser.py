@@ -98,7 +98,6 @@ def parseBinaryTree(file):
         nodeArray = line.split(',')
         root = None
         if nodeArray[0] != '':
-
             i = 0
             n = len(nodeArray)
 
@@ -145,6 +144,16 @@ def parseIntArrayArrays(file):
                 ia = [int(i) for i in sa.split(',')]
                 intAA.append(ia)
         yield intAA,
+
+
+def parseIntArray(file):
+    for line in file:
+        line = line.strip('[]\n')
+        array = []
+        if line != '':
+            array = [int(i) for i in line.split(',')]
+
+        yield array,
 
 
 def parseStringOrNull(file):

@@ -3,6 +3,7 @@ import sys
 from time import time
 
 verbose = False
+sys.setrecursionlimit(5000)
 
 
 class Judge(object):
