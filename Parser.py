@@ -121,3 +121,9 @@ def parseBinaryTree(file):
                         nextLevel.append(right)
                 lastLevel = nextLevel
         yield root,
+
+
+def parseBoolean(file):
+    for line in file:
+        line = line.rstrip('\n')
+        yield line == 'true',
