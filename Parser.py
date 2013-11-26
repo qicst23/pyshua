@@ -160,7 +160,6 @@ def parseIntArray(file):
         array = []
         if line != '':
             array = [int(i) for i in line.split(',')]
-
         yield array,
 
 
