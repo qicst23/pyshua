@@ -13,6 +13,42 @@ def arrayToSingleLinkedList(array):
     return head
 
 
+def arrayToBinaryTree(array):
+    from TreeNode import TreeNode
+
+    n = len(array)
+    if n == 0:
+        return None
+
+    i = 0
+    root = TreeNode(int(array[i]))
+    i += 1
+    lastLevel = [root]
+
+    while lastLevel:
+        nextLevel = []
+        for node in lastLevel:
+            if not node:
+                continue
+            if i < n:
+                leftString = array[i]
+                i += 1
+                left = TreeNode(
+                    int(leftString)) if leftString != '#' else None
+                node.left = left
+                nextLevel.append(left)
+
+            if i < n:
+                rightString = array[i]
+                i += 1
+                right = TreeNode(
+                    int(rightString)) if rightString != '#' else None
+                node.right = right
+                nextLevel.append(right)
+        lastLevel = nextLevel
+    return root
+
+
 def sameTree(t1, t2):
     # if t1 and t2:
     #     if t1.val != t2.val:
