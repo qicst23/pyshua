@@ -22,7 +22,9 @@ class Judge(object):
                 break
             run_time.append(time() - t_start)
         print problem.__class__.__name__, ':',
-        print '%i testcases passed.' % len(run_time)
+        print '%i testcases passed ... %s' % (
+            len(run_time), 'Accepted' if allRight else 'Wrong Answer'
+        )
         if verbose:
             print 'Run time (ms):'
             print ' '.join(['{:.3f}'.format(10**6 * i) for i in run_time])
