@@ -1,7 +1,10 @@
 def parseArrayAndInt(file):
     for line in file:
         arrayString, intString = line.split('], ')
-        a = [int(i) for i in arrayString.lstrip('[').split(',')]
+        a = []
+        arrayString = arrayString.lstrip('[')
+        if arrayString != '':
+            a = [int(i) for i in arrayString.split(',')]
         i = int(intString)
         yield a, i
 
@@ -164,3 +167,14 @@ def parseStringArray(file):
         if line != '':
             array = [s.strip('"') for s in line.split('","')]
         yield array,
+
+
+def parseStringAndStringArray(file):
+    for line in file:
+        sString, arrayString = line.split(', [')
+        s = sString[1:-1]
+        arrayString = arrayString[:-2]  # remove \n and ]
+        array = []
+        if arrayString != '':
+            array = [sString[1:-1] for sString in arrayString.split(',')]
+        yield s, array
