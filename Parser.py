@@ -188,6 +188,16 @@ def parseStringArray(file):
         yield array,
 
 
+def parseStringArrayArrays(file):
+    for line in file:
+        stringAA = line.lstrip('[').rstrip(']\n').split('],[')
+        array = []
+        if stringAA != ['']:
+            for sa in stringAA:
+                array.append([s[1:-1] for s in sa.split(',')])
+        yield array,
+
+
 def parseStringAndStringArray(file):
     for line in file:
         sString, arrayString = line.split(', [')
@@ -197,3 +207,14 @@ def parseStringAndStringArray(file):
         if arrayString != '':
             array = [sString[1:-1] for sString in arrayString.split(',')]
         yield s, array
+
+
+def parseTwoStringAndStringArray(file):
+    for line in file:
+        twoString, arrayString = line.split(', [')
+        s1, s2 = [s.strip('"') for s in twoString.split('", "')]
+        arrayString = arrayString[:-2]  # remove \n and ]
+        array = []
+        if arrayString != '':
+            array = [sString[1:-1] for sString in arrayString.split(',')]
+        yield s1, s2, array
