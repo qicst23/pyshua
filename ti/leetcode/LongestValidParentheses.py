@@ -3,27 +3,30 @@ from ti.leetcode.LeetcodeProblem import LeetcodeProblem
 
 class LongestValidParentheses(LeetcodeProblem):
     def solve(self, s):
-        res = 0
-        left = 0
-        count = 0
-        accum = 0
-        for c in s:
+        stack = []
+        s = list(s)
+        for i, c in enumerate(s):
             if c == '(':
-                left += 1
-                count = 0
+                stack.append(i)
             else:
-                if left > 0:
-                    left -= 1
-                    count = 1
-                else:
-                    if accum > res:
-                        res = accum
-                    count = 0
-                    accum = 0
-            accum += count
-        if accum > res:
-            res = accum
-        return res * 2
+                if stack:
+                    l = stack.pop()
+                    s[l] = '*'
+                    s[i] = '*'
+        res = 0
+        count = 0
+        for c in s:
+            if c == '*':
+                count += 1
+            else:
+                if count > res:
+                    res = count
+                count = 0
+
+        if count > res:
+            res = count
+
+        return res
 
     def verify(self, input, s1, s2):
         return s1 == s2
