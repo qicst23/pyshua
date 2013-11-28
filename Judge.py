@@ -10,12 +10,14 @@ class Judge(object):
     def judge(self, problem):
         run_time = []
         allRight = True
-        for testcase, solution in zip(problem.input(), problem.output()):
+        for orig_testcase, testcase, solution in zip(
+            problem.input(), problem.input(), problem.output()
+        ):
             t_start = time()
             answer = apply(problem.solve, testcase)
             if not problem.verify(testcase, answer, solution):
                 print 'Wrong Answer'
-                print 'Last excuted input:', testcase
+                print 'Last excuted input:', orig_testcase
                 print 'Expected output:', solution
                 print 'Your output:', answer
                 allRight = False
