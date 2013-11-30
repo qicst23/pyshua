@@ -3,11 +3,10 @@ from ti.leetcode.LeetcodeProblem import LeetcodeProblem
 
 class WordBreakII(LeetcodeProblem):
     def solve(self, s, dict):
-        cache = {}
-        res = self.go(s, len(s), 0, dict, cache)
-        for solution in res:
-            solution.reverse()
-        return [' '.join(solution) for solution in res]
+        return [
+            ' '.join(reversed(solution)) for solution in
+            self.go(s, len(s), 0, dict, {})
+        ]
 
     def go(self, s, l, i, dict, cache):
         if i in cache:
@@ -20,11 +19,10 @@ class WordBreakII(LeetcodeProblem):
                 for j in xrange(i, l):
                     word = s[i:j + 1]
                     if word in dict:
-                        newSolutions = [
+                        res += [
                             solution + [word] for solution in
                             self.go(s, l, j + 1, dict, cache)
                         ]
-                        res += newSolutions
             cache[i] = res
             return res
 
