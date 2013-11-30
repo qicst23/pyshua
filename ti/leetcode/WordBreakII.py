@@ -21,11 +21,10 @@ class WordBreakII(LeetcodeProblem):
                     word = s[i:j + 1]
                     if word in dict:
                         tailSolutions = self.go(s, l, j + 1, dict, cache)
-                        if tailSolutions:
-                            newSolutions = [
-                                solution + [word] for solution in tailSolutions
-                            ]
-                            res += newSolutions
+                        newSolutions = [
+                            solution + [word] for solution in tailSolutions
+                        ]
+                        res += newSolutions
             cache[i] = res
             return res
 
