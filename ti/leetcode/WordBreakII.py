@@ -20,9 +20,9 @@ class WordBreakII(LeetcodeProblem):
                 for j in xrange(i, l):
                     word = s[i:j + 1]
                     if word in dict:
-                        tailSolutions = self.go(s, l, j + 1, dict, cache)
                         newSolutions = [
-                            solution + [word] for solution in tailSolutions
+                            solution + [word] for solution in
+                            self.go(s, l, j + 1, dict, cache)
                         ]
                         res += newSolutions
             cache[i] = res
