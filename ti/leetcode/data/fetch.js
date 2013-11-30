@@ -40,8 +40,6 @@ phantom.addCookie({
 
 function fetchSubmissionDetails(url) {
     page.open(url, function(status) {
-        console.log(status);
-
         if (status !== 'success') {
             console.log('Unable to access network');
         } else {
