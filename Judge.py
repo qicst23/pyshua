@@ -11,13 +11,15 @@ class Judge(object):
         run_time = []
         allRight = True
         for testcase, solution in zip(problem.input(), problem.output()):
+            testcase_repr = repr(testcase)
+            solution_repr = repr(solution)
+
             t_start = time()
             answer = apply(problem.solve, testcase)
             duration = time() - t_start
 
-            testcase_repr = repr(testcase)
             answer_repr = repr(answer)
-            solution_repr = repr(solution)
+
             if not problem.verify(testcase, answer, solution):
                 print 'Wrong Answer'
                 print 'Last excuted input:', testcase_repr

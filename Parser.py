@@ -225,6 +225,20 @@ def parseStringAndStringArray(file):
         yield s, array
 
 
+def parseStringArrayAndString(file):
+    for line in file:
+        arrayString, sString = line.split('], ')
+
+        s = sString[1:-2]
+
+        arrayString = arrayString[1:]  # remove [
+        array = []
+        if arrayString != '':
+            array = [sString[1:-1] for sString in arrayString.split(',')]
+
+        yield array, s
+
+
 def parseTwoStringAndStringArray(file):
     for line in file:
         twoString, arrayString = line.split(', [')
