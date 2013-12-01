@@ -18,7 +18,6 @@ class RemoveDuplicatesfromSortedArray(LeetcodeProblem):
         return curIndex
 
     def verify(self, input, s1, s2):
-        print input[0][0:10], s2[0:10]
         return input[0][0:s1] == s2
 
     def input(self):
