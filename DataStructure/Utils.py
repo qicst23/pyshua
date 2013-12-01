@@ -83,3 +83,16 @@ def sameTree(t1, t2):
         last2 = next2
 
     return True
+
+
+def sameList(l1, l2):
+    while l1 and l2:
+        if l1.val != l2.val:
+            return False
+        l1 = l1.next
+        l2 = l2.next
+
+    if l1 or l2:
+        return False
+    else:
+        return True
