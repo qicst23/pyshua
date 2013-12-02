@@ -59,7 +59,7 @@ function fetchSubmissionDetails(url) {
                     var outputs = [];
                     $.each(rows, function(i, tr) {
                         inputs.push(tr.children[0].textContent);
-                        outputs.push(tr.children[2].textContent);
+                        outputs.push(tr.children[1].textContent);
                     });
                     return {
                         inputs: inputs,
