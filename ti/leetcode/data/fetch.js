@@ -29,7 +29,7 @@ var fs = require('fs');
 // add cookies
 phantom.addCookie({
     name: 'PHPSESSID',
-    value: 'mfhvzo1ilv2vi40wctgqz2wvbehxe4w4',
+    value: '5qd9rcnszk8gsfxnixm4q3szmnx3nttg',
     domain: 'oj.leetcode.com'
 });
 phantom.addCookie({
