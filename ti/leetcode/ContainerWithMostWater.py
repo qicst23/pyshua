@@ -1,7 +1,7 @@
 from ti.leetcode.LeetcodeProblem import LeetcodeProblem
 
 
-class BinaryTreePreorderTraversal(LeetcodeProblem):
+class ContainerWithMostWater(LeetcodeProblem):
     def solve(self, height):
         i = 0
         j = len(height) - 1
@@ -30,4 +30,4 @@ class BinaryTreePreorderTraversal(LeetcodeProblem):
         for o in parseOneInt(open(self.outputPath)):
             yield o[0]
 
-problem = BinaryTreePreorderTraversal
+problem = ContainerWithMostWater
