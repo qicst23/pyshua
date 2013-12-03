@@ -8,10 +8,10 @@ class ContainerWithMostWater(LeetcodeProblem):
         res = 0
         while i < j:
             if height[i] < height[j]:
-                area = height[i] * (j - i + 1)
+                area = height[i] * (j - i)
                 i += 1
             else:
-                area = height[j] * (j - i + 1)
+                area = height[j] * (j - i)
                 j -= 1
             if res < area:
                 res = area
