@@ -23,10 +23,6 @@ class SpiralMatrixII(LeetcodeProblem):
             for j in xrange(left, right + 1):
                 res[top][j] = i
                 i += 1
-        elif top <= down:
-            for j in xrange(top, down + 1):
-                res[j][left] = i
-                i += 1
 
         return res
 
