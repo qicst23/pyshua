@@ -78,7 +78,6 @@ def parseTwoStrings(file):
 
 
 def parseSingleLinkedList(file):
-    from DataStructure.SingleLinkedListNode import SingleLinkedListNode
     from DataStructure.Utils import arrayToSingleLinkedList
     for line in file:
         line = line.strip('{}\n')
@@ -89,7 +88,6 @@ def parseSingleLinkedList(file):
 
 
 def parseSingleLinkedListArray(file):
-    from DataStructure.SingleLinkedListNode import SingleLinkedListNode
     from DataStructure.Utils import arrayToSingleLinkedList
     for line in file:
         line = line[1:-2]
@@ -107,8 +105,23 @@ def parseSingleLinkedListArray(file):
         yield array,
 
 
+def parseSingleLinkedListAndInt(file):
+    from DataStructure.Utils import arrayToSingleLinkedList
+    for line in file:
+        linkedListString, iString = line.split(', ')
+
+        iString = iString.rstrip('\n')
+        i = int(iString)
+
+        linkedListString = linkedListString[1:-1]
+        array = []
+        if linkedListString != '':
+            array = [int(j) for j in linkedListString.split(',')]
+
+        yield arrayToSingleLinkedList(array), i
+
+
 def parseTwoSingleLinkedList(file):
-    from DataStructure.SingleLinkedListNode import SingleLinkedListNode
     from DataStructure.Utils import arrayToSingleLinkedList
     for line in file:
         a1, a2 = line.split('}, {')
