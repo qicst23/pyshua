@@ -14,9 +14,9 @@ class TrappingRainWater(LeetcodeProblem):
                 m = a[i]
             left[i] = m
 
+        res = 0
         m = 0
         right = 0
-        res = 0
         for i in xrange(n - 1, -1, -1):
             if a[i] > m:
                 m = a[i]
