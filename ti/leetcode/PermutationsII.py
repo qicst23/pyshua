@@ -10,7 +10,6 @@ class PermutationsII(LeetcodeProblem):
         num.sort()
 
         used = [False] * n
-
         res = []
         self.go(num, n, used, res, [])
         return res
