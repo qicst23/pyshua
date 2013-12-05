@@ -22,4 +22,4 @@ class TreeNode(object):
             for i, s in enumerate(stringArray):
                 if s != '#':
                     lastIndex = i
-        return ', '.join(stringArray[:lastIndex + 1])
+        return '{' + ', '.join(stringArray[:lastIndex + 1]) + '}'

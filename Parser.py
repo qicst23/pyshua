@@ -161,6 +161,21 @@ def parseBinaryTree(file):
         yield root,
 
 
+def parseBinaryTreeArray(file):
+    from DataStructure.Utils import arrayToBinaryTree
+    for line in file:
+        line = line.strip('[{}]\n')
+        array = []
+        if line != '':
+            bStringArray = line.split('},{')
+            for s in bStringArray:
+                a = []
+                if s != '':
+                    a = s.split(',')
+                array.append(arrayToBinaryTree(a))
+        yield array,
+
+
 def parseBinaryTreeAndInt(file):
     from DataStructure.Utils import arrayToBinaryTree
     for line in file:
