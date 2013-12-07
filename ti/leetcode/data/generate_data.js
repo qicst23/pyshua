@@ -13,7 +13,7 @@
         1024*1024,
         function(fs) {
             fs.root.getFile(
-                'input',
+                '.input',
                 {
                     create: true
                 },
@@ -30,7 +30,7 @@
                 }
             );
             fs.root.getFile(
-                'output',
+                '.output',
                 {
                     create: true
                 },
