@@ -10,36 +10,36 @@ class MaximalRectangle(LeetcodeProblem):
         if n == 0:
             return 0
 
-        lastZero = -1
-        for j in xrange(n):
-            if matrix[0][j] == '1':
-                matrix[0][j] = j - lastZero
-            else:
-                matrix[0][j] = j - lastZero - 1
-                lastZero = j
-        print 20, matrix
-        lastZero = -1 if matrix[0][0] == 1 else 0
-        for i in xrange(1, m):
-            if matrix[i][0] in '1':
-                matrix[i][0] = i - lastZero
-            else:
-                matrix[i][0] = i - lastZero - 1
-                lastZero = i
-        print 28, matrix
-        for i in xrange(1, m):
-            for j in xrange(1, n):
-                if matrix[i][j] == '1':
-                    matrix[i][j] = min(
-                        [
-                            matrix[i - 1][j - 1],
-                            matrix[i][j - 1],
-                            matrix[i - 1][j]
-                        ]
-                    ) + 1
+        res = 0
+        h = [0] * (n + 1)
+        level = 0
+        while level < m:
+            for i in xrange(n):
+                if matrix[level][i] == '0':
+                    h[i] = 0
                 else:
-                    matrix[i][j] = 0
+                    h[i] += 1
+            levelMaxArea = self.maxArea(h, n)
+            if res < levelMaxArea:
+                res = levelMaxArea
+            level += 1
+        return res
 
-        return max([max(row) for row in matrix])
+    def maxArea(self, h, n):
+        stack = []
+        res = 0
+        i = 0
+        while i < n + 1:
+            if not stack or h[i] >= h[stack[-1]]:
+                stack.append(i)
+                i += 1
+            else:
+                height = h[stack.pop()]
+                width = i - (stack[-1] if stack else -1) - 1
+                area = height * width
+                if res < area:
+                    res = area
+        return res
 
     def verify(self, input, s1, s2):
         return s1 == s2
