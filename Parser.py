@@ -87,6 +87,20 @@ def parseSingleLinkedList(file):
         yield arrayToSingleLinkedList(array),
 
 
+def parseSingleLinkedListAndTwoInt(file):
+    from DataStructure.Utils import arrayToSingleLinkedList
+    for line in file:
+        listS, twoIntS = line.split('}, ')
+
+        i1, i2 = [int(s) for s in twoIntS.rstrip('\n').split(', ')]
+
+        listS = listS.strip('{}')
+        array = []
+        if listS != '':
+            array = [int(i) for i in listS.split(',')]
+        yield arrayToSingleLinkedList(array), i1, i2
+
+
 def parseSingleLinkedListArray(file):
     from DataStructure.Utils import arrayToSingleLinkedList
     for line in file:
