@@ -3,19 +3,28 @@ from ti.leetcode.LeetcodeProblem import LeetcodeProblem
 
 class BinaryTreePostorderTraversal(LeetcodeProblem):
     def solve(self, root):
-        res = []
-        stack = []
-        cur = root
-        while stack or cur:
-            if cur:
-                res.append(cur.val)
-                stack.append(cur)
-                cur = cur.right
-            else:
-                cur = stack.pop()
-                cur = cur.left
+        if not root:
+            return []
 
-        return list(reversed(res))
+        res = []
+        stack = [root]
+        pre = None
+        cur = root
+        while stack:
+            cur = stack[-1]
+            if not pre or pre.left == cur or pre.right == cur:
+                if cur.left:
+                    stack.append(cur.left)
+                elif cur.right:
+                    stack.append(cur.right)
+            elif cur.left == pre:
+                if cur.right:
+                    stack.append(cur.right)
+            else:
+                res.append(cur.val)
+                cur = stack.pop()
+            pre = cur
+        return res
 
     def verify(self, input, s1, s2):
         return s1 == s2
