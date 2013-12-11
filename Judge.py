@@ -1,6 +1,7 @@
 import imp
 import sys
 from time import time
+from os import path
 
 verbose = False
 sys.setrecursionlimit(5000)
@@ -41,7 +42,10 @@ class Judge(object):
 
 def main():
     judge = Judge()
-    problemModule = imp.load_source('ProblemModule', sys.argv[1])
+    problemModule = imp.load_source(
+        'ProblemModule',
+        path.join('problems', sys.argv[1])
+    )
     judge.judge(problemModule.problem())
 
 if __name__ == '__main__':

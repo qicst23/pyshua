@@ -10,7 +10,7 @@ class LeetcodeTest(unittest.TestCase):
         self.judge = Judge()
 
     def testAllProblems(self):
-        leetcodePath = 'ti/leetcode/'
+        leetcodePath = 'problems/leetcode/'
         allPyFiles = filter(lambda f: f.endswith('py'), listdir(leetcodePath))
         pCount = 0
         for f in allPyFiles:
