@@ -66,6 +66,12 @@ def parseOneInt(file):
         yield int(line),
 
 
+def parseOneFloatAndOneInt(file):
+    for line in file:
+        fS, iS = line.rstrip('\n').split(', ')
+        yield float(fS), int(iS)
+
+
 def parseString(file):
     for line in file:
         yield line.rstrip('\n')[1:-1],
