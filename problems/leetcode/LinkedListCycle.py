@@ -2,31 +2,42 @@ from problems.leetcode.LeetcodeProblem import LeetcodeProblem
 
 
 class LinkedListCycle(LeetcodeProblem):
-    def solve(self, a):
-        n = len(a)
-        if n == 0:
-            return 0
+    def solve(self, head):
+        from DataStructure.SingleLinkedListNode import SingleLinkedListNode
+        fakeHead = SingleLinkedListNode(-1, head)
 
-        curVal = a[0]
-        curIndex = 1
-        for i in xrange(1, n):
-            x = a[i]
-            if x != curVal:
-                curVal = x
-                a[curIndex] = curVal
-                curIndex += 1
-        return curIndex
+        slow = fakeHead
+        quick = fakeHead
+        met = 0
+        while quick:
+            slow = slow.next
+
+            if quick.next == slow:
+                met += 1
+                if met == 2:
+                    return True
+            quick = quick.next
+
+            if not quick:
+                return False
+            else:
+                if quick.next == slow:
+                    met += 1
+                    if met == 2:
+                        return True
+                quick = quick.next
+        return False
 
     def verify(self, input, s1, s2):
-        return input[0][0:s1] == s2
+        return s1 == s2
 
     def input(self):
-        from Parser import parseIntArray
-        return parseIntArray(open(self.inputPath))
+        from Parser import parseCyclicSingleLinkedList
+        return parseCyclicSingleLinkedList(open(self.inputPath))
 
     def output(self):
-        from Parser import parseIntArray
-        for o in parseIntArray(open(self.outputPath)):
+        from Parser import parseBoolean
+        for o in parseBoolean(open(self.outputPath)):
             yield o[0]
 
-# problem = LinkedListCycle
+problem = LinkedListCycle

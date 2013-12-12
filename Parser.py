@@ -87,6 +87,31 @@ def parseSingleLinkedList(file):
         yield arrayToSingleLinkedList(array),
 
 
+def parseCyclicSingleLinkedList(file):
+    from DataStructure.Utils import arrayToSingleLinkedList
+    for line in file:
+        line = line.rstrip('\n')
+        listS, cycleS = line.split(', ')
+
+        listS = listS.strip('{}')
+        array = []
+        if listS != '':
+            array = [int(i) for i in listS.split(',')]
+        head = arrayToSingleLinkedList(array)
+
+        if cycleS != 'no cycle':
+            i = int(cycleS[-1])
+            cur = head
+            for j in xrange(i):
+                cur = cur.next
+            ith = cur
+            while cur.next:
+                cur = cur.next
+            tail = cur
+            tail.next = ith
+        yield head,
+
+
 def parseSingleLinkedListAndOneInt(file):
     from DataStructure.Utils import arrayToSingleLinkedList
     for line in file:

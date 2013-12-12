@@ -3,10 +3,28 @@ class SingleLinkedListNode(object):
         self.val = val
         self.next = next
 
+    def __hash__(self):
+        return id(self)
+
     def __repr__(self):
         array = []
+        record = set()
+        cyclicInfo = ''
         cur = self
         while cur:
-            array.append(cur.val)
-            cur = cur.next
-        return '{' + ', '.join([str(val) for val in array]) + '}'
+            if cur not in record:
+                record.add(cur)
+                array.append(cur)
+                cur = cur.next
+            else:
+                cyclicInfo = ''.join([
+                    ' --- tail connects to node index ',
+                    str(array.index(cur))
+                ])
+                break
+        return ''.join([
+            '{',
+            ', '.join([str(node.val) for node in array]),
+            '}',
+            cyclicInfo
+        ])
