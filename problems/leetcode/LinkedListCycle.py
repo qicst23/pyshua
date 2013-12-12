@@ -8,24 +8,11 @@ class LinkedListCycle(LeetcodeProblem):
 
         slow = fakeHead
         quick = fakeHead
-        met = 0
-        while quick:
+        while quick and quick.next:
             slow = slow.next
-
-            if quick.next == slow:
-                met += 1
-                if met == 2:
-                    return True
-            quick = quick.next
-
-            if not quick:
-                return False
-            else:
-                if quick.next == slow:
-                    met += 1
-                    if met == 2:
-                        return True
-                quick = quick.next
+            quick = quick.next.next
+            if slow == quick:
+                return True
         return False
 
     def verify(self, input, s1, s2):

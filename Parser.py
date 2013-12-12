@@ -71,6 +71,11 @@ def parseString(file):
         yield line.rstrip('\n')[1:-1],
 
 
+def parseCylicDescription(file):
+    for line in file:
+        yield line.rstrip('\n'),
+
+
 def parseTwoStrings(file):
     for line in file:
         s1, s2 = line.split('", "')
