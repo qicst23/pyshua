@@ -4,6 +4,7 @@ from problems.leetcode.LeetcodeProblem import LeetcodeProblem
 class SearchforaRange(LeetcodeProblem):
     def solve(self, a, target):
         n = len(a)
+
         low = 0
         high = n - 1
         left = -1
