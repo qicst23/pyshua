@@ -249,6 +249,25 @@ def parseBinaryTree(file):
         yield root,
 
 
+def parseTwoBinaryTree(file):
+    from DataStructure.Utils import arrayToBinaryTree
+    for line in file:
+        t1S, t2S = line.rstrip('\n').split('}, {')
+
+        t1S = t1S[1:]
+        t1NodeArray = t1S.split(',')
+        if t1NodeArray[0] == '':
+            t1NodeArray = []
+        t1 = arrayToBinaryTree(t1NodeArray)
+
+        t2S = t2S[:-1]
+        t2NodeArray = t2S.split(',')
+        if t2NodeArray[0] == '':
+            t2NodeArray = []
+        t2 = arrayToBinaryTree(t2NodeArray)
+        yield t1, t2
+
+
 def parseBinaryTreeArray(file):
     from DataStructure.Utils import arrayToBinaryTree
     for line in file:
