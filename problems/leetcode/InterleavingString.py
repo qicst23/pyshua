@@ -21,7 +21,7 @@ class InterleavingString(LeetcodeProblem):
                 next[j] = (
                     next[j - 1] and s2[j - 1] == s3[i + j - 1]
                 ) or (
-                    res[j] and s1[i - 1p] == s3[i + j - 1]
+                    res[j] and s1[i - 1] == s3[i + j - 1]
                 )
             res = next
             i += 1
