@@ -19,7 +19,7 @@ class LinkedListCycleII(LeetcodeProblem):
                 return slow
         return None
 
-    def verify(self, input, s1, s2):
+    def verify(self, original_input, input, s1, s2):
         if s1:
             if s2 == 'no cycle':
                 return False

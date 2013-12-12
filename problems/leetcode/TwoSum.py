@@ -23,7 +23,7 @@ class TwoSum(LeetcodeProblem):
             j = copy.index(numbers[j], i + 1)
         return (min(i, j) + 1, max(i, j) + 1)
 
-    def verify(self, input, s1, s2):
+    def verify(self, original_input, input, s1, s2):
         return s1[0] == s2[0] and s1[1] == s2[1]
 
     def input(self):

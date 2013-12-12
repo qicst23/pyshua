@@ -11,7 +11,9 @@ class Judge(object):
     def judge(self, problem):
         run_time = []
         allRight = True
-        for testcase, solution in zip(problem.input(), problem.output()):
+        for original_testcase, testcase, solution in zip(
+            problem.input(), problem.input(), problem.output()
+        ):
             testcase_repr = repr(testcase)
             solution_repr = repr(solution)
 
@@ -21,7 +23,12 @@ class Judge(object):
 
             answer_repr = repr(answer)
 
-            if not problem.verify(testcase, answer, solution):
+            if not problem.verify(
+                original_testcase,
+                testcase,
+                answer,
+                solution
+            ):
                 print 'Wrong Answer'
                 print 'Last excuted input:', testcase_repr
                 print 'Expected output:', solution_repr

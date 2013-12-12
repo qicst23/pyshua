@@ -36,7 +36,7 @@ class MedianofTwoSortedArrays(LeetcodeProblem):
         else:
             return self.find(a, aLow, aHigh, b, bLow + bc, bHigh, k - bc)
 
-    def verify(self, input, s1, s2):
+    def verify(self, original_input, input, s1, s2):
         return s1 == s2
 
     def input(self):

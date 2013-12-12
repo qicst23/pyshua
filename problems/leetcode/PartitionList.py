@@ -24,7 +24,7 @@ class PartitionList(LeetcodeProblem):
         cur2.next = None
         return fakeHead1.next
 
-    def verify(self, input, s1, s2):
+    def verify(self, original_input, input, s1, s2):
         from DataStructure.Utils import sameList
         return sameList(s1, s2)
 

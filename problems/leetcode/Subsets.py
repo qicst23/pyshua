@@ -13,7 +13,7 @@ class Subsets(LeetcodeProblem):
             tail = self.subset(s, n, i + 1)
             return tail + [e + s for s in tail]
 
-    def verify(self, input, s1, s2):
+    def verify(self, original_input, input, s1, s2):
         for a in s1:
             a.sort()
         for a in s2:

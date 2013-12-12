@@ -26,7 +26,7 @@ class GenerateParentheses(LeetcodeProblem):
             res = next
         return [vs['s'] for vs in res]
 
-    def verify(self, input, s1, s2):
+    def verify(self, original_input, input, s1, s2):
         s1.sort()
         s2.sort()
         return s1 == s2

@@ -20,7 +20,7 @@ class UniqueBinarySearchTreesII(LeetcodeProblem):
                         res.append(root)
         return res
 
-    def verify(self, input, s1, s2):
+    def verify(self, original_input, input, s1, s2):
         from DataStructure.Utils import sameTree
         for b1, b2 in zip(s1, s2):
             if not sameTree(b1, b2):

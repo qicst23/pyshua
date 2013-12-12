@@ -20,7 +20,7 @@ class BinaryTreeLevelOrderTraversal(LeetcodeProblem):
 
         return [map(lambda n: n.val, level) for level in nodes]
 
-    def verify(self, input, s1, s2):
+    def verify(self, original_input, input, s1, s2):
         return s1 == s2
 
     def input(self):

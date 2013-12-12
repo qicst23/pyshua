@@ -20,7 +20,7 @@ class MergeIntervals(LeetcodeProblem):
             res.append(cur)
         return res
 
-    def verify(self, input, s1, s2):
+    def verify(self, original_input, input, s1, s2):
         for i1, i2 in zip(s1, s2):
             if i1.start != i2.start or i1.end != i2.end:
                 return False

@@ -35,7 +35,7 @@ class UniquePathsII(LeetcodeProblem):
             i += 1
         return lastRow[-1]
 
-    def verify(self, input, s1, s2):
+    def verify(self, original_input, input, s1, s2):
         return s1 == s2
 
     def input(self):

@@ -18,7 +18,7 @@ class ValidateBinarySearchTree(LeetcodeProblem):
             node.right, node.val, high
         )
 
-    def verify(self, input, s1, s2):
+    def verify(self, original_input, input, s1, s2):
         return s1 == s2
 
     def input(self):

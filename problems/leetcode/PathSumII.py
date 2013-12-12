@@ -17,7 +17,7 @@ class PathSumII(LeetcodeProblem):
                 self.go(node.right, path, target - node.val, res)
             path.pop()
 
-    def verify(self, input, s1, s2):
+    def verify(self, original_input, input, s1, s2):
         s1.sort()
         s2.sort()
         return s1 == s2

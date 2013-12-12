@@ -22,7 +22,7 @@ class RemoveDuplicatesfromSortedList(LeetcodeProblem):
 
         return fakeHead.next
 
-    def verify(self, input, s1, s2):
+    def verify(self, original_input, input, s1, s2):
         while s1 and s2:
             if s1.val != s2.val:
                 return False

@@ -45,7 +45,7 @@ class WordLadderII(LeetcodeProblem):
                 self.buildPath(pathNodes, start, path, res)
                 path.pop()
 
-    def verify(self, input, s1, s2):
+    def verify(self, original_input, input, s1, s2):
         s1Set = set([tuple(l) for l in s1])
         if len(s1) != len(s1Set):
             return False
