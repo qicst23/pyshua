@@ -25,6 +25,24 @@ def parseIntArrayArraysAndInt(file):
         yield intAA, intI
 
 
+def parseIntArrayArraysAndIntArray(file):
+    for line in file:
+        stringAA, stringA = line.split('], ')
+
+        stringA = stringA.rstrip(']\n').lstrip('[')
+        intA = []
+        if stringA != '':
+            intA = [int(s) for s in stringA.split(',')]
+
+        stringAA = stringAA.strip('[]').split('],[')
+        intAA = []
+        if stringAA != ['']:
+            for sa in stringAA:
+                ia = [int(i) for i in sa.split(',')]
+                intAA.append(ia)
+        yield intAA, intA
+
+
 def parseStringAndInt(file):
     for line in file:
         s, i = line.split('", ')
