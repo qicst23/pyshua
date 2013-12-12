@@ -20,7 +20,9 @@ class InsertInterval(LeetcodeProblem):
         elif right + 1 < n and newInterval.end == points[right]:
             newInterval.end = points[right + 1]
             right += 2
+
         intervals[left / 2:right / 2] = [newInterval]
+
         return intervals
 
     def insertIndex(self, a, n, target):
