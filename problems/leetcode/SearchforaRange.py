@@ -32,6 +32,7 @@ class SearchforaRange(LeetcodeProblem):
                 low = middle + 1
             else:
                 high = middle - 1
+
         return [left, right]
 
     def verify(self, input, s1, s2):
