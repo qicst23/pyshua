@@ -82,6 +82,12 @@ def parseTwoStrings(file):
         yield s1[1:], s2.strip('\n')[:-1]
 
 
+def parseThreeStrings(file):
+    for line in file:
+        s1, s2, s3 = line.split('", "')
+        yield s1[1:], s2, s3.rstrip('\n')[:-1]
+
+
 def parseSingleLinkedList(file):
     from DataStructure.Utils import arrayToSingleLinkedList
     for line in file:

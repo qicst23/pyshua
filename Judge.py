@@ -44,7 +44,7 @@ def main():
     judge = Judge()
     problemModule = imp.load_source(
         'ProblemModule',
-        path.join('problems', sys.argv[1])
+        path.join('problems', sys.argv[1] + '.py')
     )
     judge.judge(problemModule.problem())
 
