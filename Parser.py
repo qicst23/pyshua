@@ -224,11 +224,11 @@ def parseBoolean(file):
 
 def parseIntArrayArrays(file):
     for line in file:
-        stringAA = line.strip('[]\n').split('],[')
+        stringAA = line.lstrip('[').rstrip(']\n').split('],[')
         intAA = []
         if stringAA != ['']:
             for sa in stringAA:
-                ia = [int(i) for i in sa.split(',')]
+                ia = [int(i) for i in sa.split(',')] if sa != '' else []
                 intAA.append(ia)
         yield intAA,
 
