@@ -9,6 +9,21 @@ def parseArrayAndInt(file):
         yield a, i
 
 
+def parseTwoIntArray(file):
+    for line in file:
+        a1S, a2S = line.rstrip('\n')[1:-1].split('], [')
+
+        a1 = []
+        if a1S != '':
+            a1 = [int(s) for s in a1S.split(',')]
+
+        a2 = []
+        if a2S != '':
+            a2 = [int(s) for s in a2S.split(',')]
+
+        yield a1, a2
+
+
 def parseIntArrayArraysAndInt(file):
     for line in file:
         stringAA, stringI = line.split('], ')
