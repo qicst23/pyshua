@@ -335,7 +335,7 @@ def parseStringArray(file):
         line = line.strip('[]\n')
         array = []
         if line != '':
-            array = [s.strip('"') for s in line.split('","')]
+            array = [s for s in line[1:-1].split('","')]
         yield array,
 
 
@@ -347,6 +347,20 @@ def parseStringArrayArrays(file):
             for sa in stringAA:
                 array.append([s[1:-1] for s in sa.split(',')])
         yield array,
+
+
+def parseStringArrayAndInt(file):
+    for line in file:
+        aS, iS = line.rstrip('\n').split(', ')
+
+        i = int(iS)
+
+        aS = aS[1:-1]
+        a = []
+        if aS != '':
+            a = [s for s in aS[1:-1].split('","')]
+
+        yield a, i
 
 
 def parseStringAndStringArray(file):
