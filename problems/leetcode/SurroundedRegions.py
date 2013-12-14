@@ -23,7 +23,7 @@ class SurroundedRegions(LeetcodeProblem):
             self.add(self.m - 1, j)
 
         while self.queue:
-            x, y = self.queue.pop(0)
+            x, y = self.queue.pop()
             self.go(x, y)
 
         for i in xrange(self.m):
