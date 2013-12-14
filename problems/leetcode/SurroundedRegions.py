@@ -36,7 +36,7 @@ class SurroundedRegions(LeetcodeProblem):
         return
 
     def go(self, x, y):
-        if self.board[x][y] == 'O' or self.board[x][y] == '.':
+        if self.board[x][y] != 'X':
             self.board[x][y] = '.'
             self.add(x - 1, y)
             self.add(x + 1, y)
