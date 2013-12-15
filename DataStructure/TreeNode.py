@@ -23,3 +23,11 @@ class TreeNode(object):
                 if s != '#':
                     lastIndex = i
         return '{' + ', '.join(stringArray[:lastIndex + 1]) + '}'
+
+
+class TreeLinkNode(object):
+    def __init__(self, x, left=None, right=None, next=None):
+        self.val = x
+        self.left = left
+        self.right = right
+        self.next = next
