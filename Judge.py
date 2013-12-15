@@ -48,10 +48,13 @@ class Judge(object):
 
 
 def main():
+    if len(sys.argv) < 3:
+        print 'Usage: python Jude.py library problem'
+        sys.exit()
     judge = Judge()
     problemModule = imp.load_source(
         'ProblemModule',
-        path.join('problems', sys.argv[1] + '.py')
+        path.join('problems', sys.argv[1], sys.argv[2] + '.py')
     )
     judge.judge(problemModule.problem())
 
