@@ -412,3 +412,28 @@ def parseTwoStringAndStringArray(file):
         if arrayString != '':
             array = [sString[1:-1] for sString in arrayString.split(',')]
         yield s1, s2, array
+
+
+def parseGraph(file):
+    from DataStructure.Graph import UndirectedGraphNode
+    for line in file:
+        line = line.rstrip('\n')[1:-1]
+
+        root = None
+        if line != '':
+            nodesIntRepr = [map(int, s.split(',')) for s in line.split('#')]
+
+            nodesIntMap = {}
+            for intRepr in nodesIntRepr:
+                label = intRepr[0]
+                nodesIntMap[label] = UndirectedGraphNode(label)
+
+            for intRepr in nodesIntRepr:
+                label = intRepr[0]
+                node = nodesIntMap[label]
+
+                node.neighbors = [nodesIntMap[l] for l in intRepr[1:]]
+
+                root = nodesIntMap[nodesIntRepr[0][0]]
+
+        yield root,
