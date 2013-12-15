@@ -70,7 +70,7 @@ class Judge(object):
 
 def main():
     if len(sys.argv) < 3:
-        print 'Usage: python Jude.py library problem'
+        print 'Usage: python Judge.py library problem'
         sys.exit()
     judge = Judge()
     problemModule = imp.load_source(
