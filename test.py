@@ -23,5 +23,6 @@ class LeetcodeTest(unittest.TestCase):
                 self.assertTrue(self.judge.judge(problem()))
                 pCount += 1
         print '%i problems verified.' % pCount
+
 if __name__ == '__main__':
     unittest.main()
